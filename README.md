@@ -51,7 +51,6 @@ http://localhost:3000
 ```
 
 ## Sample DashBoard ScreenShots
-![Screenshot](sampleimgone.JPG)
 ![Screenshot](sampleimgtwo.JPG)
 
 
