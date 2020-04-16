@@ -1,0 +1,18 @@
+{
+  "servers": [
+    {
+      "uid":"ex-a",
+      "name": "ExampleOne",
+      "endpoint": "http://example.com/",
+      "method": "GET",
+      "timeout": 1
+    },
+    {
+      "uid": "ex-b",
+      "name": "ExampleTwo",
+      "endpoint": "http://example.com/",
+      "method": "GET",
+      "timeout": 2
+    }
+  ]
+}

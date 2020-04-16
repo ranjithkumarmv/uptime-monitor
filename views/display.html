@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="shortcut icon" type="image/x-icon" href="../views/favicon.png" />
+  <meta charset="utf-8">
+  <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
+  <title>Server Monitoring Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <style type="text/css">
+
+  </style>
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link href="../views/styles.css" rel="stylesheet" />
+
+  <style>
+    #chart {
+      max-width: 650px;
+      margin: 35px auto;
+    }
+  </style>
+</head>
+
+<body>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+  <div class="container">
+    <br>
+    <p class="text-center">Service Health Monitoring Dashboard </p>
+    <hr>
+  </div>
+  <div class="row justify-content-md-center">
+    <div id="ranRXV" class="col-sm-7">
+      <!-- <div id="ranjith"></div>
+      <div id="netbanx-dev"></div>
+      <div id="netbanx-qa"></div> -->
+    </div>
+  </div> <!-- row.// -->
+  <!--container end.//-->
+
+  <script src="https://unpkg.com/ipfs-http-client@30.1.0/dist/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts@latest"></script>
+
+  <script type="text/javascript">
+
+    var x = location.hostname;
+    const url = "http://" + x + ":3000/data";
+
+    var data = fetch(url)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        var array = Object.keys(data)
+        for (let i = 0; i < array.length; i++) {
+          var div = document.createElement(array[i])
+          div.innerHTML = "<div id='" + data[array[i]].name + "'></div>";
+          document.getElementById("ranRXV").appendChild(div);
+          prepareChart({ name: data[array[i]].name, data: data[array[i]] })
+        }
+      });
+
+    async function prepareChart(data) {
+      // console.log(data.name);
+      // console.log(data.data.status);
+
+      var options = {
+        series: [{
+          name: data.name,
+          data: data.data.status
+        }],
+        chart: {
+          type: 'bar',
+          height: 200
+        },
+        plotOptions: {
+          bar: {
+            colors: {
+              ranges: [{
+                from: -100,
+                to: 0,
+                color: '#FF0000'
+              },
+              {
+                from: 0,
+                to: 100,
+                color: '#228B22'
+              }]
+            },
+            columnWidth: '80%',
+          }
+        },
+        dataLabels: {
+          enabled: false,
+        },
+        yaxis: {
+          labels: {
+            formatter: function (y) {
+              return y.toFixed(0) + "%";
+            }
+          }
+        },
+        title: {
+          text: data.name
+        },
+        xaxis: {
+          type: 'datetime',
+          categories: data.data.time,
+          labels: {
+            rotate: -90
+          }
+        }
+      };
+
+      var chart = new ApexCharts(document.querySelector("#" + data.name), options);
+      chart.render();
+    }
+
+  </script>
+</body>
+
+</html>
