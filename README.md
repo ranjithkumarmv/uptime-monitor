@@ -6,6 +6,7 @@ Standalone Real time Persistent service uptime monitor with built in dashboard.
 
 ## Installation
 
+Prerequsite NodeJs installed.
 Use the npm package manager [npm](https://www.npmjs.com/) to download node modules
 
 ```bash
