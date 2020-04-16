@@ -2,6 +2,8 @@
 
 Standalone Real time Persistent service uptime monitor with built in dashboard.  
 
+![Screenshot](sampleimgtwo.JPG)
+
 ## Installation
 
 Use the npm package manager [npm](https://www.npmjs.com/) to download node modules
@@ -49,9 +51,6 @@ Open Browser and hit
 ```bash
 http://localhost:3000
 ```
-
-## Sample DashBoard ScreenShots
-![Screenshot](sampleimgtwo.JPG)
 
 
 ## Contributing
