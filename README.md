@@ -6,7 +6,7 @@ Standalone Real time Persistent service uptime monitor with built in dashboard.
 
 ## Installation
 
-Use the npm package manager [npm](https://www.npmjs.com/) to download node modules.Prerequsite NodeJs installed.
+Use the npm package manager [npm](https://www.npmjs.com/) to download node modules. Prerequsite NodeJs.
 
 ```bash
 git clone https://github.com/ranjithkumarmv/uptime-monitor.git
