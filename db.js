@@ -1,6 +1,6 @@
 const { Sequelize, Model, DataTypes } = require('sequelize');
 var Storage = require('node-storage');
-var store = new Storage('./database/datastore');
+var store = new Storage('./config');
 
 const sequelize = new Sequelize({
     dialect: 'sqlite',

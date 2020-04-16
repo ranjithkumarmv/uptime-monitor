@@ -3,7 +3,7 @@ process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
 const { Sequelize, Model, DataTypes } = require('sequelize');
 var Storage = require('node-storage');
 const got = require('got');
-var store = new Storage('./database/datastore');
+var store = new Storage('./config');
 var sleep = require("./utils/sleep")
 
 // prepare db and trigger monitor
